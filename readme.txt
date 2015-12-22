@@ -1,29 +1,47 @@
-Kicad setup to use these libraries:
+----- Local Libraries for Kicad -----
 
-1. In eeschema, add "symbols" files to Kicad's "Preferences->Component Libraries".
-* Add the symbols directory path to the search path list. (use absolute, not relative path)
-* Add the library files in the symbols\* directory.
 
-2. Copy master kicad footprint libraries from Github to local directory.
-   Note: This step brings all libraries local. Brings up the "PCB Library Tables" dialog,
-         which configures a text file called fp-lib-table. (path at top of dialog)
+** Kicad setup to use these libraries:
+
+1. In eeschema, add "symbols" files to Kicad's "Preferences->Component Libraries":
+
+   NOTE: these settings are stored in the project (.pro) file, so this step is required for each new project.
+
+a) Add the local symbols directory path to the search path list. (use absolute, not relative path)
+b) Add all the library files in the symbols\* directory.
+
+
+2. Copy master kicad footprint libraries from Github to a local directory:
+
+   Note: This step brings all libraries local. We'll use the "PCB Library Tables" dialog,
+         which configures a global Kicad config file called fp-lib-table. (see path at top of dialog)
+
    Note: This file (fp-lib-table) is cached by kicad, so after editing you'll need to completely exit all   
-         kicad programs and re-launch to see the changes consistently.
-* Open the "PCB Footprint Editor" and select "Preferences->Footprint Libraries Manager".
-* Remove all the default 'github' plugin libraries. (fetched on demand)
-* Choose "Append with Wizard" and select 'Github repository' option, saving a local copy
-  to our "kicad_libs/footprints/kicad" directory.
-* Select all libraries from github, and add to global library configuration. This will download
-  all libraries to our local directory.
+         kicad programs and re-launch to see the changes consistently across tools.
+
+a) Open the "PCB Footprint Editor" and select "Preferences->Footprint Libraries Manager".
+b) Remove all the default ('github' plugin) libraries.
+c) Choose "Append with Wizard" and select 'Github repository' option, saving a local copy
+   to our "kicad_libs/footprints/kicad" directory.
+d) Select all libraries from github, and add to global library configuration. This will download
+   all libraries to our local directory.
   
-3. Add user footprint libraries (still in Footprint Libraries Manager)
-* Choose "Append with Wizard", and select local library directories in "kicad_libs/footprints/***.pretty"
+
+3. Add user footprint libraries (still in Footprint Libraries Manager):
+
+a) Choose "Append with Wizard", and select local library directories in "kicad_libs/footprints/***.pretty"
+b) Using this dialog, add "Synapse" and "Added" libraries to global configuration
+
 
 4. Add link to local 3D packages
-* Each footprint file can include a path to its 3D model. This can be specified relative to KISYS3DMOD environment variable,
-  but the relative path must be below that directory path. (can't use ../local/)
-* Make a symlink called "local" under the default KISYS3DMOD directory, pointing to our local 3D library.
-  Ex: C:\Program Files\KiCad\share\kicad\modules\packages3d>mklink /D local C:\HardwareDev\kicad_libs\packages3d
+
+   NOTE: Each footprint file can include a path to its 3D model. This can be specified relative to
+         the KISYS3DMOD environment variable, which we'll leave at default to use the pre-installed 3D packages
+         referenced by the master footprint library. Since the relative path seems to only support
+         directories _below_ KISYS3DMOD, we will place our local packages under this path.
+
+a) Make a symlink called "local" under the default KISYS3DMOD directory, pointing to our local 3D library.
+   Ex: C:\Program Files\KiCad\share\kicad\modules\packages3d>mklink /D local C:\HardwareDev\kicad_libs\packages3d
 
 
 

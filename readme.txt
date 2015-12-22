@@ -45,3 +45,14 @@ a) Make a symlink called "local" under the default KISYS3DMOD directory, pointin
 
 
 
+5. In eeschema, select BOM generator plugin:
+
+   NOTE: When you generate a netlist, Kicad creates an XML file in your project directory which has all the information
+         needed to create the BOM. The BOM dialog in eeschema lets you select a 'plugin' to process this XML file,
+         typically into a CSV output format.
+
+a) Open the BOM dialog, and select "Add Plugin".
+b) Browse to local library and choose "kicad_libs/scripts/bom-in-python/bom_csv_grouped_by_value.py"
+c) In the "Command Line" input box, append .csv to the command string. Should end with  "%O".csv
+
+

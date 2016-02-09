@@ -1,4 +1,4 @@
-(module Added:QSOP-24 (layer F.Cu) (tedit 5668205C)
+(module QSOP-24 (layer F.Cu) (tedit 5668205C)
   (attr smd)
   (fp_text reference U2 (at -5.08 -2.54 90) (layer F.SilkS)
     (effects (font (size 0.889 0.889) (thickness 0.1524)))
@@ -37,7 +37,7 @@
   (pad 12 smd rect (at 3.4925 2.65) (size 0.42 1.12) (layers F.Cu F.Paste F.Mask))
   (model local/walter/smd_dil/tssop-24.wrl
     (at (xyz 0 0 0))
-    (scale (xyz 1 1 1))
+    (scale (xyz 0.9769 0.9375 1))
     (rotate (xyz 0 0 0))
   )
 )

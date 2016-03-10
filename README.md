@@ -1,10 +1,10 @@
 [![](https://cloud.githubusercontent.com/assets/1317406/12406044/32cd9916-be0f-11e5-9b18-1547f284f878.png)](http://www.synapse-wireless.com/)
 
-# Synapse KiCAD Part Libraries
+# Synapse KiCad Part Libraries
 
 ## Setup
 
-1. In eeschema, add "symbols" files to Kicad's "Preferences->Component Libraries":
+1. In eeschema, add "symbols" files to KiCad's "Preferences->Component Libraries":
 
    **Note**: these settings are stored in the project (.pro) file, so this step is required for each new project.
 
@@ -12,16 +12,16 @@
    1. Add all the library files in the symbols\* directory.
 
 
-1. Copy master kicad footprint libraries from Github to a local directory:
+1. Copy master KiCad footprint libraries from GitHub to a local directory:
 
-   **Note**: This step brings all libraries local. We'll use the "PCB Library Tables" dialog, which configures a global Kicad config file called fp-lib-table. (see path at top of dialog)
+   **Note**: This step brings all libraries local. We'll use the "PCB Library Tables" dialog, which configures a global KiCad config file called fp-lib-table. (see path at top of dialog)
 
-   **Note**: This file (fp-lib-table) is cached by kicad, so after editing you'll need to completely exit all kicad programs and re-launch to see the changes consistently across tools.
+   **Note**: This file (fp-lib-table) is cached by KiCad, so after editing you'll need to completely exit all KiCad programs and re-launch to see the changes consistently across tools.
 
    1. Open the "PCB Footprint Editor" and select "Preferences->Footprint Libraries Manager".
    1. Remove all the default ('github' plugin) libraries.
    1. Choose "Append with Wizard" and select 'Github repository' option, saving a local copy to our "kicad_libs/footprints/kicad" directory.
-   1. Select all libraries from github, and add to global library configuration. This will download all libraries to our local directory.
+   1. Select all libraries from GitHub, and add to global library configuration. This will download all libraries to our local directory.
   
 1. Add user footprint libraries (still in Footprint Libraries Manager):
 
@@ -40,7 +40,7 @@
 
 1. In eeschema, select BOM generator plugin:
 
-   **Note**: When you generate a netlist, Kicad creates an XML file in your project directory which has all the information
+   **Note**: When you generate a netlist, KiCad creates an XML file in your project directory which has all the information
          needed to create the BOM. The BOM dialog in eeschema lets you select a 'plugin' to process this XML file,
          typically into a CSV output format.
 
